@@ -367,7 +367,7 @@ endif
 if not harfbuzz_dep.found() and \
    (harfbuzz_opt == 'dynamic' or harfbuzz_opt == 'auto')
   # On Windows we don't need libdl, but on other platforms we need it.
-  if host_machine.system() == 'windows'
+  if host_machine.system() == 'windows' or host_machine.system() == 'haiku'
     harfbuzz_opt = 'dynamic'
     ftoption_command += [
       '--enable=FT_CONFIG_OPTION_USE_HARFBUZZ',
